@@ -1,0 +1,392 @@
+<html lang="en" >
+  <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+      <link href="style.css" rel="stylesheet">
+      <link href="flex.css" rel="stylesheet">
+      <link href="colors.css" rel="stylesheet">
+      <link href="button.css" rel="stylesheet">
+   </head>
+   <style>
+   md-tabs{margin-left: 17%;}
+   </style>
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+ <!-- Angular Material Library -->
+ <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+  <body>
+     <div class="container">
+        <div ng-app="project_details" ng-controller="project_controller">
+              <div class="sub1-dimension">
+                   <md-card>
+                          <div layout="row" layout-align="space-between start">
+                              <p style="font-size:18; margin-left: 3%" class="grey">Contract with Zender Company</p>
+                              <md-button class="md-raised" style="margin-top:2%"><span class="grey">Edit Project</span></md-button>
+                          </div><br>
+                          <div layout="column" layout-align="space-between start">
+                               <div class="subfull">
+                                  <div><strong class="grey" style="margin-left:21%;">Status:</strong>
+                                    <md-button ng-disabled="false" class="myButton height">Active</md-button>
+                                  </div>
+                            	    <div class="indent10 blk" layout="row" layout-align="none start">
+                                     	<div><strong class="grey">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Created by:</strong>&nbsp;&nbsp; Alex Smith</div>
+                                      <div style="margin-left:25%;"><strong class="grey">Last Updated:</strong>&nbsp;&nbsp;&nbsp; 16.08.2014 12:15:57</div>
+                                  </div>
+                                    <div>
+                                      	<div layout="row" layout-align="none start" style="padding-left: 16%;" class="indent10 grey blk">
+                                             	<div><strong class="grey">&nbsp;&nbsp;&nbsp;&nbsp;Messages:</strong>&nbsp;&nbsp;&nbsp;162</div>
+                                              <div style="margin-left:37%;"><strong class="grey">Created:</strong>&nbsp;&nbsp;&nbsp;&nbsp;10.07.2014 23:36:57</div>
+                                        </div>
+                                        <div layout="row" layout-align="none start" style="padding-left: 21.6%;" class="indent20 grey blk">
+                                           	<div><strong class="grey">Client:</strong>&nbsp;&nbsp;&nbsp;<a class="grey dim" href="www.google.com" style="text-decoration: none;">Zender Company</a></div>
+                                              <div style="padding-left:18.8%;"><strong class="grey">&nbsp;&nbsp;&nbsp;&nbsp;Participants:</strong></div>&nbsp;&nbsp;&nbsp;&nbsp;
+                                              <div style="margin-top:5px;">
+                                                 <a href="www.google.com"><img class="png-icon" src="user1.jpg" style="border-radius:50%;height:28;"></a>
+                                                 <a href="www.google.com"><img class="png-icon" src="user2.jpg" style="border-radius:50%;height:28;"></a>
+                                                 <a href="www.google.com"><img class="png-icon" src="user3.jpg" style="border-radius:50%;height:28;"></a>
+                                                 <a href="www.google.com"><img class="png-icon" src="user4.jpg" style="border-radius:50%;height:28;"></a>
+                                                 <a href="www.google.com"><img class="png-icon" src="user5.jpg" style="border-radius:50%;height:28;"></a>
+                                               </div>
+                                            </div><br>
+                                        <div>
+                                            <div class="indent10 blk" layout="row" layout-align="none start" style="width:89%;padding-left: 17.5%;">
+                                                  <strong class="grey">Completed:</strong>&nbsp;&nbsp;&nbsp;
+                                                  <md-progress-linear style="margin-top:9px;" md-mode="determinate" value="60"></md-progress-linear>
+                                            </div>
+                                            <p class="grey" style="font-size:13px;padding-left: 28.6%;">Project completed in <b>60%.</b> Remaining close the project, sign a contract and invoice.</p>
+                                        </div>
+                            	      </div>
+                               <div ng-cloak>
+                                  <md-content>
+                                    <md-tabs md-dynamic-height md-border-bottom>
+                                      <md-tab label="User Messages">
+                                        <md-content>
+                                             <md-list>
+                                              <md-list-item class="md-3-line" ng-repeat="item in messages">
+                                                    <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}">
+                                                    <div class="md-list-item-text">
+                                                      <b>{{item.name}}</b>{{item.what}}<b>{{item.to}}</b>{{item.where}}<span style="float:right"><small>{{item.time}}</small></span>
+                                                      <br><small>{{item.time_desc}}</small>
+                                                      <md-card ng-show="{{item.box}}" style="background-color: #eee;border-radius: 2;"><p style="padding:5;font-size: 12">{{item.message}}</p></md-card>
+                                                      <br><div ng-show="{{item.yn}}" class="like">Like</div><div ng-show="{{item.yn}}"class="love">Love</div>
+                                                    </div>
+                                                    <md-divider md-inset ng-if="!$last"></md-divider>
+                                              </md-list-item>
+                                            </md-list>
+                                        </md-content>
+                                      </md-tab>
+                                      <md-tab label="Last Activity">
+                                        <md-content class="md-padding">
+
+                                    <table border="1px" cellpadding="2px" black"class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>Status</th>
+                                            <th>Title</th>
+                                            <th>Start Time</th>
+                                            <th>End Time</th>
+                                            <th>Comments</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <span class="label label-primary"><i class="fa fa-check"></i> Completed</span>
+                                            </td>
+                                            <td>
+                                               Create project in webapp
+                                            </td>
+                                            <td>
+                                               12.07.2014 10:10:1
+                                            </td>
+                                            <td>
+                                                14.07.2014 10:16:36
+                                            </td>
+                                            <td>
+                                            <p class="small">
+                                                Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable.
+                                            </p>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="label label-primary"><i class="fa fa-check"></i> Accepted</span>
+                                            </td>
+                                            <td>
+                                                Various versions
+                                            </td>
+                                            <td>
+                                                12.07.2014 10:10:1
+                                            </td>
+                                            <td>
+                                                14.07.2014 10:16:36
+                                            </td>
+                                            <td>
+                                                <p class="small">
+                                                    Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                                                </p>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="label label-primary"><i class="fa fa-check"></i> Sent</span>
+                                            </td>
+                                            <td>
+                                                There are many variations
+                                            </td>
+                                            <td>
+                                                12.07.2014 10:10:1
+                                            </td>
+                                            <td>
+                                                14.07.2014 10:16:36
+                                            </td>
+                                            <td>
+                                                <p class="small">
+                                                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which
+                                                </p>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="label label-primary"><i class="fa fa-check"></i> Reported</span>
+                                            </td>
+                                            <td>
+                                                Latin words
+                                            </td>
+                                            <td>
+                                                12.07.2014 10:10:1
+                                            </td>
+                                            <td>
+                                                14.07.2014 10:16:36
+                                            </td>
+                                            <td>
+                                                <p class="small">
+                                                    Latin words, combined with a handful of model sentence structures
+                                                </p>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="label label-primary"><i class="fa fa-check"></i> Accepted</span>
+                                            </td>
+                                            <td>
+                                                The generated Lorem
+                                            </td>
+                                            <td>
+                                                12.07.2014 10:10:1
+                                            </td>
+                                            <td>
+                                                14.07.2014 10:16:36
+                                            </td>
+                                            <td>
+                                                <p class="small">
+                                                    The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+                                                </p>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="label label-primary"><i class="fa fa-check"></i> Sent</span>
+                                            </td>
+                                            <td>
+                                                The first line
+                                            </td>
+                                            <td>
+                                                12.07.2014 10:10:1
+                                            </td>
+                                            <td>
+                                                14.07.2014 10:16:36
+                                            </td>
+                                            <td>
+                                                <p class="small">
+                                                    The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                                                </p>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="label label-primary"><i class="fa fa-check"></i> Reported</span>
+                                            </td>
+                                            <td>
+                                                The standard chunk
+                                            </td>
+                                            <td>
+                                                12.07.2014 10:10:1
+                                            </td>
+                                            <td>
+                                                14.07.2014 10:16:36
+                                            </td>
+                                            <td>
+                                                <p class="small">
+                                                    The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+                                                </p>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="label label-primary"><i class="fa fa-check"></i> Completed</span>
+                                            </td>
+                                            <td>
+                                                Lorem Ipsum is that
+                                            </td>
+                                            <td>
+                                                12.07.2014 10:10:1
+                                            </td>
+                                            <td>
+                                                14.07.2014 10:16:36
+                                            </td>
+                                            <td>
+                                                <p class="small">
+                                                    Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable.
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="label label-primary"><i class="fa fa-check"></i> Sent</span>
+                                            </td>
+                                            <td>
+                                                Contrary to popular
+                                            </td>
+                                            <td>
+                                                12.07.2014 10:10:1
+                                            </td>
+                                            <td>
+                                                14.07.2014 10:16:36
+                                            </td>
+                                            <td>
+                                                <p class="small">
+                                                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                        </md-content>
+                                      </md-tab>
+                                    </md-tabs>
+                                  </md-content>
+                               </div>
+                          </div>
+                       </div>
+                   </md-card>
+              </div>
+        </div>
+        <div class="sub2-dimension">
+          <div style="margin-left: 15%;width: 70%;font-family: 'Roboto', sans-serif;">
+              <br><strong>Project Description</strong><br><br>
+              <img src="zender_logo.png"><br>
+              <p style="font-size: 15;" class="details">There are many variations of passages of Lorem Ipsum available,
+              but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly
+              believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing</p>
+              <p style="font-size: 12;" class="details"><strong>High Priority</strong></p>
+              <p style="font-size: 12;" class="details"><strong>Project Tag</strong></p>
+              <br><md-button class="tag_btn"><!--<i class="material-icons" style="font-size:12px">local_offer </i>-->&nbsp;&nbsp;zender&nbsp;&nbsp;</md-button>
+              <md-button class="tag_btn"><!--<i class="material-icons" style="font-size:12px">local_offer</i>-->&nbsp;&nbsp;Loren Ipsum&nbsp;&nbsp;</md-button>
+              <md-button class="tag_btn"><!--<i class="material-icons" style="font-size:12px">local_offer</i>-->&nbsp;&nbsp;Passages&nbsp;&nbsp;</md-button><br><br>
+              <md-button class="tag_btn"><!--<i class="material-icons" style="font-size:12px">local_offer</i>-->&nbsp;&nbsp;Variations&nbsp;&nbsp;</md-button>
+              <p style="font-size: 12;" class="details"><strong>Project Files</strong></p>
+              <p style="font-size: 15" class="details"><i class="material-icons" style="font-size:15">insert_drive_file</i> Project_documentation.dox</p>
+              <p style="font-size: 15" class="details"><i class="material-icons" style="font-size:15">insert_photo</i> Logo_zender_company.jpg</p>
+              <p style="font-size: 15" class="details"><i class="material-icons" style="font-size:15">insert_comment</i> Email_from_alex.min</p>
+              <md-button class="myButton" style="font-size: 12;padding-right: 5px;padding-left: 5px">Add files</md-button>
+              <md-button class="myButton" style="font-size:12; padding-right: 5px;padding-left: 5px">Report Contact</md-button>
+          </div>
+        </div>
+     </div>
+  </body>
+  <script type="text/javascript">
+    angular.module('project_details', ['ngMaterial'])
+    .controller('project_controller', function($scope) {
+    var imagePath = 'img/list/60.jpeg';
+    $scope.messages = [{
+      face : "user3.jpg",
+      name: 'Mark Johnson',
+      to: ' Monica Smith',
+      what: ' posted message',
+      where:' on site.',
+      when: 'Today 2:10 pm - 12.06.2014',
+      notes: " I'll be in your neighborhood doing errands",
+      message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Over the years, sometimes by accident, sometimes on purpose (injected humour and the like). ",
+      time:'2h ago',
+      time_desc:'Today 2:10 pm - 12.06.2014',
+      box:true,
+      yn:false
+    }, {
+      face : "user1.jpg",
+      name:'Janet Rosowski',
+      to:' Monica Smith',
+      what: ' add 1 photo on',
+      where:'.',
+      when: '2 days ago at 8:30am',
+      notes: " I'll be in your neighborhood doing errands",
+      time:'2h ago',
+      time_desc:'2 days ago at 8:30am',
+      box:false,
+      yn:false
+    }, {
+      face : "user4.jpg",
+      name:'Chris Johnatan Overtunk ',
+      to:' Monica Smith',
+      what: 'started following',
+      where:'.',
+      when: 'Yesterday 1:21 pm - 11.06.2014',
+      notes: " I'll be in your neighborhood doing errands",
+      time:'5h ago',
+      time_desc:'Yesterday 1:21 pm - 11.06.2014',
+      box:false,
+      yn:true
+    }, {
+      face : "user5.jpg",
+      name:'Kim Smith',
+      to:' Monica Smith',
+      what: 'posted message on Monica Smith ',
+      where:' site.',
+      when: 'Yesterday 5:20 pm - 12.06.2014',
+      notes: " I'll be in your neighborhood doing errands",
+      message: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Over the years, sometimes by accident, sometimes on purpose (injected humour and the like). ",
+      time:'2h ago',
+      time_desc:'Yesterday 5:20 pm - 12.06.2014',
+      box:true,
+      yn:false
+    }, {
+      face : "user2.jpg",
+      name:'Monica Smith',
+      to:' Kim Smith',
+      what: 'Monica Smith love Kim Smith.',
+      where:'.',
+      when: '2 days ago at 2:30 am - 11.06.2014',
+      notes: " I'll be in your neighborhood doing errands",
+      time:'23h ago',
+      time_desc:'2 days ago at 2:30 am - 11.06.2014',
+      box:false,
+      yn:false
+    },
+    {
+      face : "user1.jpg",
+      name:'Mike Loreipsum',
+      to:' Monica Smith',
+      what: ' started following',
+      where:'.',
+      when: '3 days ago at 7:58 pm - 10.06.2014',
+      notes: " I'll be in your neighborhood doing errands",
+      time:'46h ago',
+      time_desc:'3 days ago at 7:58 pm - 10.06.2014',
+      box:false,
+      yn:false
+    }];
+  });
+  </script>
+  </html>

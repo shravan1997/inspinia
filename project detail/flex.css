@@ -1,0 +1,32 @@
+.container{
+  width:100%;
+  padding:1%;
+}
+.left{
+  float:left;
+}
+.right{
+  float:right;
+}
+.sub1-dimension{
+  position: relative;
+  float: left;
+  font-family: 'Roboto', sans-serif;
+  width:65%;
+}
+.sub2-dimension{
+   position: relative;
+   float: right;
+   background-color: #eee;
+   width:35%;
+}
+.sub-full{
+  width:100%;
+}
+@media all and (min-width: 600px) {
+    .sub1{ width: 100%;}
+}
+@media all and (min-width: 900px) {
+    .sub1{ width: 80%;}
+    .sub2{ width: 20%;}
+}

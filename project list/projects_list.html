@@ -1,0 +1,136 @@
+<html lang="en" >
+   <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+   <link href="flex.css" rel="stylesheet">
+   </head>
+   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+  <!-- Angular Material Library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+     <body style="background-color: white">
+         	<div ng-controller="AppCtrl" ng-app="dividerDemo1" ng-cloak>
+             <div layout="row" layout-align="space-between start" class="full-width">
+                <div class="grey-color indent box">All projects assigned to this account</div>
+                <md-button class="myButton refresh-button md-ink-ripple">create new project</md-button>
+             </div>
+             <md-divider></md-divider>
+             <div layout="row" layout-align="space-between start" class="full-width">
+               <md-button class="myButton refresh-button md-ink-ripple">
+                 <i style="margin-top:10px;" class="material-icons refresh-icon">refresh</i>
+                 &nbsp;&nbsp;<span style="padding-top:-15px;">Refresh</span>
+               </md-button>
+               <md-input-container class="md-block" flex-gt-sm>
+                <label>Search</label>
+                <input required name="name"/>
+               </md-input-container>
+              <md-button class="myButton go-button">Go!</md-button>
+             </div>
+             <md-content>
+                  <div class="">
+                      <md-list>
+                        <md-list-item style="width:100%;" class="md-3-line" ng-repeat="item in messages">
+                                <div class="md-list-item-text">
+                                    	<div layout="row" layout-align="none start" class="full-width">
+                                        <div class="container excess-width">
+                                        	   <div class="div1">
+                                                <md-button style="background-color:{{item.backcolor}}" class="myButton refresh-button md-ink-ripple">{{item.status_btn}}</md-button>
+                                             </div>
+                                          	 <div class="div2">
+                                                <div layout="column" style="padding-left:10px;" layout-align="none start"><h3>{{item.what}}</h3>{{item.when}}</div>
+                                             </div><br>
+                                          	 <div class="div3">
+                                                 <div layout="column" style="padding-left:10px;" layout-align="none start">
+                                                      <p>{{item.completion_status}}</p><md-progress-linear md-mode="determinate" value={{item.val}}></md-progress-linear>
+                                                 </div>
+                                             </div>
+                                             <div class="div4">
+                                                    <div layout="row" layout-align="start" style="margin-left:25px;" class="full-width">
+                                                          <div ng-repeat="x in item.users">
+                                                                <img style="padding:5px; border-radius:50%;height:26;" src={{x}}>
+                                                          </div>
+                                                    </div>
+                                             </div>
+                                             <div class="div5">
+                                                	<div><md-button class="myveButton refresh-button md-ink-ripple" ><i class="material-icons" style="font-size:24px">folder</i><span>View</span></md-button>
+                                                	<md-button class="myveButton refresh-button md-ink-ripple"><i class="material-icons" style="font-size:24px">create</i> Edit</md-button></div>
+                                          	 </div>
+                                        </div>
+                                      </div>
+                                </div>
+                          <md-divider ng-if="!$last"></md-divider>
+                        </md-list-item>
+                      </md-list>
+                  </div>
+             </md-content>
+          </div>
+     </body>
+     <script type="text/javascript">
+     	angular.module('dividerDemo1', ['ngMaterial'])
+      .controller('AppCtrl', function($scope) {
+    var imagePath = 'img/list/60.jpeg';
+    $scope.messages = [{
+      face : imagePath,
+      what: 'Contract with Zender Company     ',
+      who: 'Min Li Chan',
+      when: 'Created 14.08.2014',
+      notes: " I'll be in your neighborhood doing errands",
+      status_btn:"active",
+      completion_status:"Completion with: 48%",
+      users: ["user2.jpg","user3.jpg","user4.jpg","user5.jpg"],
+      val: 48,
+      backcolor:'rgb(63,81,181)',
+      },
+       {
+      face : imagePath,
+      what: 'There are many variations of passages',
+      who: 'Min Li Chan',
+      when: 'Created 11.08.2014',
+      completion_status:"Completion with: 28%",
+      users: ["user3.jpg","user4.jpg","user5.jpg"],
+      status_btn:"active",
+      val: 28,
+      backcolor:'rgb(63,81,181)',
+    }, {
+      face : imagePath,
+      what: 'Many desktop publishing packages and web',
+      who: 'Min Li Chan',
+      when: 'Created 10.08.2014',
+      notes: " I'll be in your neighborhood doing errands",
+      completion_status:"Completion with: 8%",
+      users: ["user1.jpg","user2.jpg"],
+      status_btn:"inactive",
+      val: 8,
+      backcolor:'#d1dade',
+    }, {
+      face : imagePath,
+      what: 'Letraset sheets containing',
+      who: 'Min Li Chan',
+      when: 'Created 22.07.2014',
+      notes: " I'll be in your neighborhood doing errands",
+      completion_status:"Completion with: 83%",
+      users: ["user1.jpg","user2.jpg","user3.jpg","user4.jpg"],
+      status_btn:"active",
+      val: 83,
+      backcolor:'rgb(63,81,181)',
+    }, {
+      face : imagePath,
+      what: 'Contrary to popular belief',
+      who: 'Min Li Chan',
+      when: 'Created 14.07.2014',
+      notes: " I'll be in your neighborhood doing errands",
+      completion_status:"Completion with: 97%",
+      users: ["user4.jpg"],
+      status_btn:"active",
+      val: 97,
+      backcolor:'rgb(63,81,181)',
+    }];
+  });
+     </script>
+</html>

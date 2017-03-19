@@ -1,0 +1,48 @@
+.myButton {
+    background-color:rgb(63,81,181);
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-family:roboto;
+    display: inline-block;
+    font-size: 13px;
+    margin: 6px 5px;
+    cursor: pointer;
+    border-radius:4px;
+    }
+    br{
+      line-height:0.8;
+    }
+    .md-button {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    max-height: 27px;
+    min-width: 88px;
+    line-height: 32px;
+}
+    .height{
+      min-height: 28px;
+    }
+    p{
+      font-family: 'Roboto', sans-serif;
+    }
+    .grey
+    {
+      color: #1ab394;
+    }
+    .dim{
+      opacity: 0.8;
+    }
+    .indent10
+    {
+      padding-left: 15%;
+    }
+    .indent20
+    {
+      padding-left: 22%;
+    }
+    .blk{
+      color:#333;
+    }

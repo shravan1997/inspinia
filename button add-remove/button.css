@@ -1,0 +1,15 @@
+.b1{
+  background:aqua;
+  display: inline-block;
+  position: relative;
+  max-width:100%;
+  color: #676a6c;
+  padding:7px;
+  border-radius:25px;
+}
+#hide{
+  font-size: 17px;
+}
+.straight{
+  display: inline-block;
+}

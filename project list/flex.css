@@ -1,0 +1,22 @@
+
+@media all and (min-width: 500px) {
+  .div1{width:40%; order:1; }
+  .div3{width:50%; order:2; }
+  .div2{width:100%; order:3; margin-top: 17px;}
+  .div4{width:100%; order:4; margin-top: 17px;}
+  .div5{width:100%; order:5; }
+}
+@media all and (min-width: 900px) {
+	.div1{width:15%; order: 1; }
+  .div2{width:30%; order: 2; margin-top: 17px;}
+  .div3{width:15%; order: 3; margin-top: 17px;}
+  .div4{width:20%; order: 4; }
+  .div5{width:20%; order: 5; margin-top: 14px;}
+}
+.container{
+    width:100%;
+    display: -webkit-flex; /* Safari */
+    -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+    display: flex;
+    flex-wrap: wrap;
+}

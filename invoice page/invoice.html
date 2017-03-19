@@ -1,0 +1,164 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <link href="flex.css" rel="stylesheet">
+  <link href="button.css" rel="stylesheet">
+  <style>
+  m-t {
+    margin-top: 15px;
+}
+.table-responsive {
+    min-height: .01%;
+    overflow-x: auto;
+}
+.myButton {
+    background-color:rgb(63,81,181);
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-family:roboto;
+    display: inline-block;
+    font-size: 13px;
+    margin: 6px 5px;
+    cursor: pointer;
+    border-radius:4px;
+    }
+  </style>
+</head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+<body>
+  <div class="container">
+    <div ng-app="myapp">
+        <div ng-controller="mycontroller">
+                <div class="main1">
+                  <md-button class="myButton">Edit</md-button><md-button class="myButton">Delete</md-button><br>
+                    <div class="div1 grey-color" style="padding-left:3%;">
+                      <p>From :<br>
+                    <b>Inspinia ,Inc</b><br>
+                        106 Jorg Avenu, 600/10<br>
+                        Chicago, VT 32456<br>
+                        P: (123) 601-4590</p>
+                    </div>
+                    <div class="div2 grey-color">
+                      <div class="right">
+                      <p><span><b>Invoice No.</b></span><br>
+                      <span>INV-000567F7-00</span><br><br>
+                      <span>To:</span><br>
+                      <span><b>Corporate, Inc.</b></span><br>
+                      <span>112 Street Avenu, 1080</span><br>
+                      <span>Miami, CT 445611</span><br>
+                      <span>P: (120) 9000-4321</span><br><br>
+                      <span><b>Invoice Date:</b> Marh 18, 2014</span><br>
+                      <span><b>Due Date:</b> March 24, 2014</span></p>
+                    </div>
+                    </div>
+                </div><br><br>
+                <div class="main2" style="overflow-x: auto">
+                  <div class="table-responsive m-t">
+                    <md-content style="display:inline-block; width:97%">
+                       <div class="">
+                            <md-list>
+                              <md-list role="list">
+                                  <md-list-item style="max-width:100%;" class="md-3-line"  role="listitem">
+                                     <div class="md-list-item-text">
+                                       <div layout="row" layout-align="none start" class="full-width">
+                                         <div class=" cont excess-width">
+                                           <table class="table-responsive">
+                                      <thead>
+                                         <tr>
+                                           <th class="grey-color sub1 center"><b>item list</b></th>
+                                           <th class="grey-color sub2 center"><b>quantity</b></th>
+                                           <th class="grey-color sub3 center"><b>unit price</b></th>
+                                           <th class="grey-color sub4 center"><b>tax</b></th>
+                                           <th class="grey-color sub5 center"><b>total price</b><BR></th>
+                                        </tr>
+                                      </thead>
+                                      <tbody ng-repeat="item in messages">
+                                        <tr style="margin-top:10%">
+                                           <td class="grey-color sub1 ">{{item.itemlist}}<br><span style="color:black">{{item.cont}}</span></td>
+                                           <td class="grey-color sub2 center">{{item.quantity}}</span></td>
+                                           <td class="grey-color sub3 center">{{item.unit_price}}</span></td>
+                                           <td class="grey-color sub4 center">{{item.tax}}</span></td>
+                                           <td class="grey-color sub5 center">{{item.total_price}}</td>
+                                         </tr>
+                                       </tbody>
+                                       </table>
+                                         </div>
+                                      </div>
+                                     </div>
+                                  </md-list-item>
+                            </md-list>
+                       </div>
+                       <div class="div5 grey-color">
+                         <div class="right" style="margin-right:10%">
+                           <div ng-repeat="item in calc">
+                             <p><strong>Sub total:</strong><span style="padding-left:8%">{{item.sub_total}}</span></p>
+                             <p><strong>Tax:</strong><span style="padding-left:10%">{{item.tax}}</span></p>
+                             <p><strong>Total:</strong><span style="padding-left:8%">{{item.total}}</span></p>
+
+                           </div>
+                           <md-button class="myButton">$Make a payment </md-button>
+                       </div>
+                       </div>
+                    </md-content>
+                  </div>
+                </div>
+                <br><br>
+                <div class="main3">
+                  <div class="div4 grey-color" style="margin-right:3%; padding:2%;">
+                    <b>Comments:</b> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.The point of using Lorem Ipsum is that it has a more-or-less
+                  </div>
+                </div>
+        </div>
+  </div>
+</div>
+</body>
+<script type="text/javascript">
+   var app = angular.module('myapp', ['ngMaterial'])
+   app.controller('mycontroller', function($scope){
+     $scope.messages = [{
+      itemlist: 'Admin Theme with psd project layouts',
+      itemlist_para: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      quantity: 1,
+      unit_price:'$26.00',
+      tax:'$5.98',
+      total_price: '$31.98',
+      cont: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    },
+    {
+    itemlist: 'Admin Theme with psd project layouts',
+    itemlist_para: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    quantity: 1,
+    unit_price:'$26.00',
+    tax:'$5.98',
+    total_price: '$31.98',
+    cont:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+  },
+  {
+  itemlist: 'Admin Theme with psd project layouts',
+  itemlist_para: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  quantity: 1,
+  unit_price:'$26.00',
+  tax:'$5.98',
+  total_price: '$31.98',
+  cont: 'lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+ }
+   ];
+   $scope.calc =[{
+     sub_total: '$1026.00',
+     tax: '$235.98',
+     total: '$1261.98'
+   }];
+    });
+
+</script>
+</html>
